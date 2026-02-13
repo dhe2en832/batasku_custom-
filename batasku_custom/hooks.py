@@ -254,3 +254,16 @@ fixtures = [
     {"dt": "Server Script", "filters": [["module", "=", "Batasku Custom"]]}
 ]
 
+# hooks.py
+
+doc_events = {
+    "Purchase Invoice": {
+        "before_insert": "batasku_custom.purchase_invoice_hooks.before_insert_fill_details",
+        "before_validate": "batasku_custom.purchase_invoice_hooks.before_validate_fill_details"
+    }
+}
+
+# Alternative: Try using validate event
+# doc_events["Purchase Invoice"]["validate"] = "batasku_custom.purchase_invoice_hooks.validate_fill_details"
+
+
